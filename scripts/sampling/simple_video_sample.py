@@ -163,6 +163,7 @@ def sample(
         else:
             with Image.open(input_img_path) as image:
                 print("Non sv3d")
+                print(image.mode)
                 if image.mode == "RGBA":
                     print("RGBA")
                     input_image = image.convert("RGB")

@@ -162,11 +162,14 @@ def sample(
 
         else:
             with Image.open(input_img_path) as image:
+                print("Non sv3d")
                 if image.mode == "RGBA":
+                    print("RGBA")
                     input_image = image.convert("RGB")
                 w, h = image.size
 
                 if h % 64 != 0 or w % 64 != 0:
+                    print("Not dividable by 64")
                     width, height = map(lambda x: x - x % 64, (w, h))
                     input_image = input_image.resize((width, height))
                     print(
